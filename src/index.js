@@ -11,7 +11,7 @@ import { store, persistor } from './store';
 
 import Routes from './routes';
 
-export default function App() {
+export default function Index() {
   return (
     <NavigationContainer>
       <Provider store={store}>
