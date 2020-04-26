@@ -50,6 +50,7 @@ export default function SignedRoutes() {
       <Tab.Screen name="Dashboard" component={Dashboard} />
       <Tab.Screen
         options={{
+          unmountOnBlur: true,
           tabBarVisible: false,
           tabBarLabel: 'Agendar',
           tabBarIcon: () => (

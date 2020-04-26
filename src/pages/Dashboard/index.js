@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { useFocusEffect } from '@react-navigation/native';
+
 import api from '~/services/api';
 
 import Background from '~/components/Background';
@@ -18,15 +20,14 @@ export default function Dashboard({ navigation }) {
     });
   }, [navigation]);
 
-  useEffect(() => {
+  useFocusEffect(() => {
     async function loadAppointments() {
       const response = await api.get('appointments');
 
       setAppointments(response.data);
     }
-
     loadAppointments();
-  }, []);
+  });
 
   async function handleCancel(id) {
     const response = await api.delete(`appointments/${id}`);
