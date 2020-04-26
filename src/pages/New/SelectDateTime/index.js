@@ -41,15 +41,25 @@ export default function SelectDateTime({ route, navigation }) {
     loadSchedules();
   }, [date, provider.id]);
 
+  function handleSelectHour(time) {
+    navigation.navigate('Confirm', {
+      provider,
+      time,
+    });
+  }
+
   return (
     <Background>
       <Container>
         <DateInput date={date} onChange={setDate} />
         <SchedulesList
           data={schedules}
-          keyExtractor={(schedule) => String(schedule.time)}
+          keyExtractor={(schedule) => schedule.time}
           renderItem={({ item: schedule }) => (
-            <Schedule onPress={() => navigation.navigate('SelectDateTime')}>
+            <Schedule
+              onPress={() => handleSelectHour(schedule.value)}
+              enabled={schedule.available}
+            >
               <Hour>{schedule.time}</Hour>
             </Schedule>
           )}

@@ -19,14 +19,14 @@ export const Schedule = styled(RectButton)`
   padding: 20px;
   flex: 1;
 
+  opacity: ${(props) => (props.enabled ? 1 : 0.6)};
+
   align-items: center;
   margin: 0 10px 20px;
 `;
 
 export const Hour = styled.Text`
-  margin-top: 15px;
   font-size: 14px;
   font-weight: bold;
   color: #333;
-  text-align: center;
 `;
